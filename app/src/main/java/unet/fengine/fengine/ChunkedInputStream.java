@@ -39,6 +39,21 @@ public class ChunkedInputStream extends FilterInputStream {
         return pos-chunk;
     }
 
+    public long skip(long n)throws IOException {
+        n = in.skip(n);
+        pos += n;
+
+        if(pos >= chunk){
+            pos -= chunk;
+            chunk = startChunk();
+            if(chunk == 0){
+                return -1;
+            }
+        }
+
+        return n;
+    }
+
     private int startChunk()throws IOException {
         byte[] buf = new byte[6];
         byte b;
