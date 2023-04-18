@@ -24,6 +24,8 @@ This library supports the following transfer encoding methods
 - [ ] compress - (You can wrap the input stream onResponse)
 - [ ] brotli - (You can wrap the input stream onResponse)
 
+[[https://github.com/DrBrad/FEngine/blob/main/fengine.png|alt=Diagram]]
+
 Usage
 -----
 Here are some examples of how to use the FEngine library.
