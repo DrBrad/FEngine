@@ -40,7 +40,6 @@ public class ChunkedInputStream extends FilterInputStream {
     }
 
     public long skip(long n)throws IOException {
-        n = in.skip(n);
         pos += n;
 
         if(pos >= chunk){
@@ -49,6 +48,11 @@ public class ChunkedInputStream extends FilterInputStream {
             if(chunk == 0){
                 return -1;
             }
+
+            n = in.skip(pos);
+
+        }else{
+            n = in.skip(n);
         }
 
         return n;
