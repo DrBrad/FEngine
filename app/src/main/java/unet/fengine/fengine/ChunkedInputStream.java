@@ -14,7 +14,11 @@ public class ChunkedInputStream extends FilterInputStream {
 
     public int read()throws IOException {
         byte[] b = new byte[1];
-        read(b, 0, 1);
+        int l = read(b, 0, 1);
+
+        if(l == -1){
+            return -1;
+        }
 
         return b[0];
     }
